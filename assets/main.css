@@ -6204,6 +6204,9 @@ html, body {
 #ozp-dashboard {
   color: white !important; }
 
+#ozp-hud {
+  color: #1b70a6 !important; }
+
 #appsmall-logo > img {
   height: 30px;
   width: 19px; }
@@ -6455,7 +6458,9 @@ body > div.classBanner:last-of-type {
   background-color: #222222 !important;
   color: white !important;
   height: 350px;
-  border-style: double; }
+  border-style: solid;
+  border-width: 1px;
+  border-color: #2b3036; }
 
 .settings-modal .settings-body {
   background-color: #222222 !important;
@@ -6485,6 +6490,7 @@ body > div.classBanner:last-of-type {
 .help-modal-left {
   float: left;
   width: 30%;
+  margin-top: 9px;
   font-weight: 300;
   font-family: 'Ubuntu Light', 'Ubuntu'; }
 
