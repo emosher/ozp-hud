@@ -6129,11 +6129,10 @@ html, body {
   margin: 7px;
   background-color: #313836;
   border-style: none; }
-
-#logout-text {
+#login-page .logout-text {
   text-align: center;
   color: #eeeeef;
-  margin-right: 40px; }
+  margin-right: 35px; }
 
 #header {
   position: relative;
