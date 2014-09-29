@@ -6130,6 +6130,11 @@ html, body {
   background-color: #313836;
   border-style: none; }
 
+#logout-text {
+  text-align: center;
+  color: #eeeeef;
+  margin-right: 40px; }
+
 #header {
   position: relative;
   height: 55px;
