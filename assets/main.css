@@ -1,3 +1,42 @@
+/* CSS which accompanies jQuery.classification.js */
+.classBanner {
+    font-family: Ubuntu, Calibri, Arial, Helvecta, sans-serif;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
+    color: #f9f9f9;
+    background-color: #4f5457;
+}
+/*
+.U-FOUO {
+    background-color: #009900;
+}
+
+.Conf {
+    background-color: #0000FF;
+}
+
+.Secret {
+    background-color: #FF0000;
+}
+
+.TopSecret-Orange {
+    background-color: #FF6600;
+}
+
+.TopSecret-Yellow {
+    background-color: #FFFF00;
+    color: black;
+}
+
+.Dynamic {
+    background-color: #000000;
+}
+*/
+
 /* Ubuntu @font-face kit */
 /* BEGIN Ubuntu Light */
 @font-face {
@@ -6139,7 +6178,7 @@ button.close {
 .fa-angle-up:before {
   content: "\f106"; }
 
-.fa-angle-down:before {
+.fa-angle-down:before, .LibraryTile__actionMenuButton:before {
   content: "\f107"; }
 
 .fa-desktop:before {
@@ -6295,7 +6334,7 @@ button.close {
 .fa-bullseye:before {
   content: "\f140"; }
 
-.fa-ellipsis-h:before, .LibraryTile__actionMenuButton:before {
+.fa-ellipsis-h:before {
   content: "\f141"; }
 
 .fa-ellipsis-v:before {
@@ -6811,135 +6850,11 @@ embed {
   color: #eeeeef;
   margin-right: 35px; }
 
-#header {
-  position: relative;
-  height: 55px;
-  background: #fff;
-  padding-left: 0px; }
-  #header .navbar-form {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    right: 69px;
-    left: 280px;
-    height: 54px;
-    border: 1px solid #d5d5d5;
-    border-top: none;
-    border-bottom: none;
-    border-right: none; }
-    #header .navbar-form > .form-group {
-      width: 100%; }
-      #header .navbar-form > .form-group > .form-control {
-        position: relative;
-        padding: 12px 35px 16px 75px;
-        width: 100%;
-        height: 54px;
-        border: 0; }
-      #header .navbar-form > .form-group > .glyphicon-search {
-        position: absolute;
-        z-index: 1;
-        top: 17px;
-        left: 30px;
-        color: #858585; }
-
-.menu-icon {
-  background-color: #191f25; }
-
-#logo-container {
-  float: left;
-  width: 280px;
-  height: 55px;
-  padding: 16px 0 0 30px; }
-
-#appsmall-logo-link > img {
-  position: absolute;
-  padding: 5px 0 0 0;
-  color: white;
-  width: 36px;
-  height: 42px; }
-
-#user-menu {
-  position: absolute;
-  top: 0;
-  right: 0; }
-  #user-menu .btn {
-    height: 54px;
-    padding: 15px 34px 0 30px; }
-  #user-menu .dropdown-menu {
-    background-color: #4c5457;
-    margin-top: 0; }
-
-.app-dropdown-menu {
-  background-color: #4c5457;
-  border-radius: 0px !important;
-  border: 0px; }
-  .app-dropdown-menu :hover {
-    background-color: #4c5457 !important; }
-
-#ozp-logo > img {
-  height: 30px;
-  width: 30px; }
-
-#ozp-dashboard {
-  color: white !important; }
-
-#ozp-hud {
-  color: #009dd3 !important; }
-
-#appsmall-logo > img {
-  height: 30px;
-  width: 19px; }
-
-#ozp-clock {
-  margin-top: 7px; }
-
-.nav-bar-icon {
-  color: #ffffff !important; }
-
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: #4c5457; }
-
-.app-dropdown-item {
-  height: 20px !important; }
-
-.navbar-nav > li > a {
-  padding-top: 5px !important;
-  padding-bottom: 5px !important; }
-
 .navbar {
-  min-height: 20px !important;
-  background: #2b3036;
-  border: 0px;
-  width: 100% !important; }
-
-/*-- change navbar dropdown color --*/
-.navbar-default .navbar-nav .open .dropdown-menu > li > a, .navbar-default .navbar-nav .open .dropdown-menu {
-  color: #ffffff; }
-
-.container-fluid {
-  padding-left: 0px; }
-
-#ozp-notifications:active > i {
-  color: #009dd3 !important; }
-
-#top-bar ul {
-  list-style: none outside none; }
-#top-bar ul > li {
-  cursor: pointer;
-  float: left;
-  margin: 0;
-  position: relative;
-  text-align: center;
-  height: 42px; }
-#top-bar .clearfix {
-  clear: both; }
-#top-bar .dashboard-img {
-  height: 25px; }
-
-body > div.classBanner:last-of-type {
+  z-index: 5;
   position: fixed;
-  bottom: 0%; }
+  width: 100%;
+  left: 0; }
 
 .search {
   position: absolute;
@@ -6948,6 +6863,9 @@ body > div.classBanner:last-of-type {
   width: 100%;
   height: 100%;
   overflow: auto; }
+
+.FolderLibrary {
+  padding-top: 42px; }
 
 .LibraryTiles {
   margin: 0;
@@ -7011,8 +6929,8 @@ body > div.classBanner:last-of-type {
       padding-right: 5px;
       display: block; }
     .LibraryTile__actionMenu > ul > li:hover > a {
-      color: #71c9e7;
-      border-color: #71c9e7;
+      color: #009dd3;
+      border-color: #009dd3;
       text-decoration: none; }
 
 .LibraryTile__actionMenuButton {
@@ -7024,7 +6942,7 @@ body > div.classBanner:last-of-type {
   position: relative;
   margin-right: 0;
   margin-left: auto;
-  width: 50px;
+  width: 25px;
   height: 21px;
   padding: 0;
   cursor: pointer;
@@ -7034,7 +6952,7 @@ body > div.classBanner:last-of-type {
   -ms-user-select: none; }
   .LibraryTile__actionMenuButton::before {
     position: absolute;
-    width: 50px;
+    width: 25px;
     height: 20px;
     left: -1px; }
 
@@ -7048,10 +6966,10 @@ body > div.classBanner:last-of-type {
     .LibraryTile__actionMenu > input:checked ~ ul {
       display: block; }
     .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton {
-      color: #71c9e7; }
+      color: #009dd3; }
 
 .LibraryTile__actionMenuButton:hover, .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton {
-  border-top: 3px solid #71c9e7; }
+  border-top: 3px solid #009dd3; }
   .LibraryTile__actionMenuButton:hover::before, .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton::before {
     top: -2px; }
 
@@ -7095,7 +7013,7 @@ body > div.classBanner:last-of-type {
   text-align: center;
   color: #ffffff; }
   .FolderLibrary__empty a {
-    color: #71c9e7;
+    color: #009dd3;
     font-weight: bold;
     font-size: 2em; }
 
@@ -7209,3 +7127,19 @@ body > div.classBanner:last-of-type {
 @media (min-width: 1200px) {
   .FolderModal > .modal-dialog {
     width: 980px; } }
+
+/*=======================
+= Classification Banner =
+=======================*/
+body {
+  margin-top: 20px; }
+
+body > div.classBanner:first-of-type {
+  position: fixed;
+  top: 0;
+  z-index: 100; }
+
+body > div.classBanner:last-of-type {
+  position: fixed;
+  bottom: 0;
+  z-index: 100; }
