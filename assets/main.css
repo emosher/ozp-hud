@@ -6917,6 +6917,7 @@ embed {
   display: none;
   width: 120px;
   font-size: 0.8em;
+  font-weight: 300;
   background-color: #191f25;
   border: 1px solid #2b3036; }
   .LibraryTile__actionMenu > ul > li {
@@ -6929,7 +6930,6 @@ embed {
       padding-right: 5px;
       display: block; }
     .LibraryTile__actionMenu > ul > li:hover > a {
-      color: #009dd3;
       border-color: #009dd3;
       text-decoration: none; }
 
@@ -6958,8 +6958,8 @@ embed {
 
 .LibraryTile__actionMenu {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 1px;
+  right: 1px;
   z-index: 1; }
   .LibraryTile__actionMenu > input {
     display: none; }
@@ -7060,7 +7060,7 @@ embed {
   height: 100%; }
 
 .modal-content {
-  background: #fff;
+  background: #191f25;
   overflow: auto !important;
   height: 90%; }
 
@@ -7080,7 +7080,7 @@ embed {
   opacity: 1; }
 
 .help-text {
-  background-color: grey !important;
+  background-color: #191f25 !important;
   border-color: white !important;
   border-style: solid;
   padding: 5px 5px 5px 5px;
