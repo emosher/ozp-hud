@@ -6805,6 +6805,14 @@ html, body {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
 
+h1 {
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-size: 25px; }
+
+.activeIcon {
+  color: #009dd3 !important; }
+
 @media (max-width: 1023px) and (min-width: 800px) {
   #main {
     width: 800px !important;
@@ -6855,6 +6863,27 @@ embed {
   position: fixed;
   width: 100%;
   left: 0; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  border-top: 4px solid #009dd3 !important; }
+
+.dropdown-header {
+  font-weight: 500 !important; }
+
+.navbar-default .navbar-nav li > a {
+  font-weight: 300 !important; }
+.navbar-default .navbar-nav li:hover, .navbar-default .navbar-nav li:hover, .navbar-default .navbar-nav ul.dropdown-menu > li > a:hover {
+  border-left-color: #009dd3 !important; }
+.navbar-default .navbar-nav a:hover, .navbar-default .navbar-nav a:focus {
+  border-top-color: #009dd3 !important; }
+.navbar-default .navbar-nav > .open > a {
+  background-color: #3b4246 !important;
+  border-top: 4px solid #009dd3 !important;
+  color: #009dd3 !important; }
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #3b4246 !important;
+    border-top: 4px solid #009dd3 !important;
+    color: #009dd3 !important; }
 
 .search {
   position: absolute;
@@ -6918,27 +6947,28 @@ embed {
   width: 120px;
   font-size: 0.8em;
   font-weight: 300;
-  background-color: #191f25;
-  border: 1px solid #2b3036; }
+  background-color: #191f25; }
   .LibraryTile__actionMenu > ul > li {
     padding-top: 5px;
     padding-bottom: 5px; }
     .LibraryTile__actionMenu > ul > li > a {
-      color: inherit;
+      color: #dbdcdd;
       border-left: 3px solid transparent;
       padding-left: 5px;
       padding-right: 5px;
       display: block; }
     .LibraryTile__actionMenu > ul > li:hover > a {
       border-color: #009dd3;
+      color: #ffffff;
       text-decoration: none; }
 
 .LibraryTile__actionMenuButton {
   display: block;
   text-align: center;
   background-color: #191f25;
+  color: #dbdcdd;
   font-size: 1.3em;
-  border: 1px solid #2b3036;
+  border-top: 3px solid transparent;
   position: relative;
   margin-right: 0;
   margin-left: auto;
@@ -6954,7 +6984,11 @@ embed {
     position: absolute;
     width: 25px;
     height: 20px;
-    left: -1px; }
+    left: -1px;
+    top: -2px; }
+  .LibraryTile__actionMenuButton:hover {
+    border-top: 3px solid #009dd3;
+    color: #ffffff; }
 
 .LibraryTile__actionMenu {
   position: absolute;
@@ -6968,9 +7002,9 @@ embed {
     .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton {
       color: #009dd3; }
 
-.LibraryTile__actionMenuButton:hover, .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton {
+.LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton {
   border-top: 3px solid #009dd3; }
-  .LibraryTile__actionMenuButton:hover::before, .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton::before {
+  .LibraryTile__actionMenu > input:checked + .LibraryTile__actionMenuButton::before {
     top: -2px; }
 
 .DropSeparator {
@@ -7060,7 +7094,7 @@ embed {
   height: 100%; }
 
 .modal-content {
-  background: #191f25;
+  background: #4c5457;
   overflow: auto !important;
   height: 90%; }
 
@@ -7070,11 +7104,11 @@ embed {
   height: 450px; }
 
 .btn-close {
-  color: #666 !important;
+  color: #dbdcdd !important;
   opacity: 1;
   text-shadow: none; }
   .btn-close:hover {
-    color: #000 !important; }
+    color: #ffffff !important; }
 
 .close:hover {
   opacity: 1; }
