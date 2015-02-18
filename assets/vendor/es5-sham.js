@@ -39,12 +39,10 @@ var lookupGetter;
 var lookupSetter;
 var supportsAccessors = owns(prototypeOfObject, '__defineGetter__');
 if (supportsAccessors) {
-    /*eslint-disable no-underscore-dangle */
     defineGetter = call.bind(prototypeOfObject.__defineGetter__);
     defineSetter = call.bind(prototypeOfObject.__defineSetter__);
     lookupGetter = call.bind(prototypeOfObject.__lookupGetter__);
     lookupSetter = call.bind(prototypeOfObject.__lookupSetter__);
-    /*eslint-enable no-underscore-dangle */
 }
 
 // ES5 15.2.3.2
@@ -58,9 +56,7 @@ if (!Object.getPrototypeOf) {
     // ... this will nerever possibly return null
     // ... Opera Mini breaks here with infinite loops
     Object.getPrototypeOf = function getPrototypeOf(object) {
-        /*eslint-disable no-proto */
         var proto = object.__proto__;
-        /*eslint-enable no-proto */
         if (proto || proto === null) {
             return proto;
         } else if (object.constructor) {
@@ -97,7 +93,6 @@ if (Object.defineProperty) {
 if (!Object.getOwnPropertyDescriptor || getOwnPropertyDescriptorFallback) {
     var ERR_NON_OBJECT = 'Object.getOwnPropertyDescriptor called on a non-object: ';
 
-    /*eslint-disable no-proto */
     Object.getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
         if ((typeof object !== 'object' && typeof object !== 'function') || object === null) {
             throw new TypeError(ERR_NON_OBJECT + object);
@@ -113,16 +108,14 @@ if (!Object.getOwnPropertyDescriptor || getOwnPropertyDescriptorFallback) {
             }
         }
 
-        var descriptor;
-
         // If object does not owns property return undefined immediately.
         if (!owns(object, property)) {
-            return descriptor;
+            return;
         }
 
         // If object has a property then it's for sure both `enumerable` and
         // `configurable`.
-        descriptor = { enumerable: true, configurable: true };
+        var descriptor = { enumerable: true, configurable: true };
 
         // If JS engine supports accessor properties then property may be a
         // getter or setter.
@@ -168,7 +161,6 @@ if (!Object.getOwnPropertyDescriptor || getOwnPropertyDescriptorFallback) {
         descriptor.writable = true;
         return descriptor;
     };
-    /*eslint-enable no-proto */
 }
 
 // ES5 15.2.3.4
@@ -205,9 +197,7 @@ if (!Object.create) {
             var parent = document.body || document.documentElement;
             iframe.style.display = 'none';
             parent.appendChild(iframe);
-            /*eslint-disable no-script-url */
             iframe.src = 'javascript:';
-            /*eslint-enable no-script-url */
             var empty = iframe.contentWindow.Object.prototype;
             parent.removeChild(iframe);
             iframe = null;
@@ -218,9 +208,7 @@ if (!Object.create) {
             delete empty.toLocaleString;
             delete empty.toString;
             delete empty.valueOf;
-            /*eslint-disable no-proto */
             empty.__proto__ = null;
-            /*eslint-enable no-proto */
 
             function Empty() {}
             Empty.prototype = empty;
@@ -254,9 +242,7 @@ if (!Object.create) {
             // neither `__proto__`, but this manually setting `__proto__` will
             // guarantee that `Object.getPrototypeOf` will work as expected with
             // objects created using `Object.create`
-            /*eslint-disable no-proto */
             object.__proto__ = prototype;
-            /*eslint-enable no-proto */
         }
 
         if (properties !== void 0) {
@@ -323,16 +309,16 @@ if (!Object.defineProperty || definePropertyFallback) {
         }
 
         // If it's a data property.
-        if ('value' in descriptor) {
+        if (owns(descriptor, 'value')) {
             // fail silently if 'writable', 'enumerable', or 'configurable'
             // are requested but not supported
             /*
             // alternate approach:
             if ( // can't implement these features; allow false but not true
-                ('writable' in descriptor && !descriptor.writable) ||
-                ('enumerable' in descriptor && !descriptor.enumerable) ||
-                ('configurable' in descriptor && !descriptor.configurable)
-            ))
+                !(owns(descriptor, 'writable') ? descriptor.writable : true) ||
+                !(owns(descriptor, 'enumerable') ? descriptor.enumerable : true) ||
+                !(owns(descriptor, 'configurable') ? descriptor.configurable : true)
+            )
                 throw new RangeError(
                     'This implementation of Object.defineProperty does not support configurable, enumerable, or writable.'
                 );
@@ -343,7 +329,6 @@ if (!Object.defineProperty || definePropertyFallback) {
                 // `__proto__` we can safely override `__proto__` while defining
                 // a property to make sure that we don't hit an inherited
                 // accessor.
-                /*eslint-disable no-proto */
                 var prototype = object.__proto__;
                 object.__proto__ = prototypeOfObject;
                 // Deleting a property anyway since getter / setter may be
@@ -352,7 +337,6 @@ if (!Object.defineProperty || definePropertyFallback) {
                 object[property] = descriptor.value;
                 // Setting original `__proto__` back now.
                 object.__proto__ = prototype;
-                /*eslint-enable no-proto */
             } else {
                 object[property] = descriptor.value;
             }
@@ -361,10 +345,10 @@ if (!Object.defineProperty || definePropertyFallback) {
                 throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);
             }
             // If we got that far then getters and setters can be defined !!
-            if ('get' in descriptor) {
+            if (owns(descriptor, 'get')) {
                 defineGetter(object, property, descriptor.get);
             }
-            if ('set' in descriptor) {
+            if (owns(descriptor, 'set')) {
                 defineSetter(object, property, descriptor.set);
             }
         }
@@ -398,9 +382,6 @@ if (!Object.defineProperties || definePropertiesFallback) {
 // http://es5.github.com/#x15.2.3.8
 if (!Object.seal) {
     Object.seal = function seal(object) {
-        if (Object(object) !== object) {
-            throw new TypeError('Object.seal can only be called on Objects.');
-        }
         // this is misleading and breaks feature-detection, but
         // allows "securable" code to "gracefully" degrade to working
         // but insecure code.
@@ -412,9 +393,6 @@ if (!Object.seal) {
 // http://es5.github.com/#x15.2.3.9
 if (!Object.freeze) {
     Object.freeze = function freeze(object) {
-        if (Object(object) !== object) {
-            throw new TypeError('Object.freeze can only be called on Objects.');
-        }
         // this is misleading and breaks feature-detection, but
         // allows "securable" code to "gracefully" degrade to working
         // but insecure code.
@@ -441,9 +419,6 @@ try {
 // http://es5.github.com/#x15.2.3.10
 if (!Object.preventExtensions) {
     Object.preventExtensions = function preventExtensions(object) {
-        if (Object(object) !== object) {
-            throw new TypeError('Object.preventExtensions can only be called on Objects.');
-        }
         // this is misleading and breaks feature-detection, but
         // allows "securable" code to "gracefully" degrade to working
         // but insecure code.
@@ -455,9 +430,6 @@ if (!Object.preventExtensions) {
 // http://es5.github.com/#x15.2.3.11
 if (!Object.isSealed) {
     Object.isSealed = function isSealed(object) {
-        if (Object(object) !== object) {
-            throw new TypeError('Object.isSealed can only be called on Objects.');
-        }
         return false;
     };
 }
@@ -466,9 +438,6 @@ if (!Object.isSealed) {
 // http://es5.github.com/#x15.2.3.12
 if (!Object.isFrozen) {
     Object.isFrozen = function isFrozen(object) {
-        if (Object(object) !== object) {
-            throw new TypeError('Object.isFrozen can only be called on Objects.');
-        }
         return false;
     };
 }
@@ -479,7 +448,7 @@ if (!Object.isExtensible) {
     Object.isExtensible = function isExtensible(object) {
         // 1. If Type(O) is not Object throw a TypeError exception.
         if (Object(object) !== object) {
-            throw new TypeError('Object.isExtensible can only be called on Objects.');
+            throw new TypeError(); // TODO message
         }
         // 2. Return the Boolean value of the [[Extensible]] internal property of O.
         var name = '';
