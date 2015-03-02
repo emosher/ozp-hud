@@ -6,4 +6,5 @@ window.OzoneConfig = {
     "HUD_URL": "http://localhost:8088/dist",
     "WEBTOP_URL": 'http://ozone-development.github.io/ozp-webtop/#/grid/sticky-0/0',
     "DEVELOPER_RESOURCES_URL": "#",
+    "APP_TITLE": 'OZONE HUD',
 };
