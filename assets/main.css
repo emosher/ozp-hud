@@ -7065,6 +7065,22 @@ input[type="checkbox"].ios.brand-info.checked + .track {
 .settings-window small, .settings-window dd {
   font-size: 12px; }
 
+.load-error {
+  margin-top: 20px;
+  font-weight: normal; }
+  .load-error > p {
+    font-size: 1.2em; }
+  .load-error .error-details {
+    margin-left: 20px; }
+  .load-error p > label {
+    margin-bottom: 0; }
+    .load-error p > label::after {
+      content: ':'; }
+  .load-error h4 {
+    font-weight: bold; }
+  .load-error h5 {
+    font-weight: bolder; }
+
 html, body {
   background: #191f25;
   font-family: 'Ubuntu';
@@ -7116,20 +7132,8 @@ embed {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-top: 4px solid #009dd3 !important; }
 
-.container-fluid {
-  max-width: 1500px !important;
-  margin-left: auto;
-  margin-right: auto; }
-
 .dropdown-header {
   font-weight: 500 !important; }
-
-.navbar-left {
-  margin-left: 5px !important; }
-
-.navbar-right {
-  right: 0px !important;
-  margin-right: 65px !important; }
 
 .navbar-default .navbar-nav li > a {
   font-weight: 300 !important; }
@@ -7395,12 +7399,10 @@ embed {
 body {
   margin-top: 20px; }
 
-body > div.classBanner:first-of-type {
+body > div.classBanner {
   position: fixed;
-  top: 0;
-  z-index: 100; }
-
-body > div.classBanner:last-of-type {
-  position: fixed;
-  bottom: 0;
-  z-index: 100; }
+  z-index: 1000000; }
+  body > div.classBanner:first-of-type {
+    top: 0px; }
+  body > div.classBanner:last-of-type {
+    bottom: 0px; }
