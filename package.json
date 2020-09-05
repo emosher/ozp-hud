@@ -66,7 +66,7 @@
     "url": "https://spdx.org/licenses/Apache-2.0"
   },
   "dependencies": {
-    "babel-runtime": "4.6.6",
+    "babel-runtime": "4.7.16",
     "bootstrap-sass": "git://github.com/ozone-development/bootstrap-sass",
     "gulp-preprocess": "1.2.0",
     "icons": "git://github.com/ozone-development/icons",
